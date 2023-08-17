@@ -1,6 +1,6 @@
 import BaseLayout from '@/pages/dashboard/baselayout';
 import styles from './MainContent.module.css';
-import patient_dummy_data from '@/pages/dashboard/dummyData/patient_dummy';
+import patient_dummy_data from '@/components/dummyData/patient_dummy';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import AutoGoToTop from '@/components/AutoGoToTop';

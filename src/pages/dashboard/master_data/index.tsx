@@ -5,7 +5,7 @@ import Nav_bar from '@/pages/dashboard/nav_bar';
 import Side_bar from '@/pages/dashboard/side_bar';
 import BaseLayout from '@/pages/dashboard/baselayout';
 import styles from '../MainContent.module.css';
-import MasterDataList from '@/pages/dashboard/dummyData/masterDataLis';
+import MasterDataList from '@/components/dummyData/masterDataLis';
 
 // interface MasterData {
 //   image: string;

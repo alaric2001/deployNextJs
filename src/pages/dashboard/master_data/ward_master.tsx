@@ -3,7 +3,7 @@ import styles from '../MainContent.module.css';
 import AutoGoToTop from '@/components/AutoGoToTop';
 import BaseLayout from '@/pages/dashboard/baselayout';
 import axios from 'axios';
-import RomanNumerals from '@/pages/dashboard/dummyData/roman_numerals';
+import RomanNumerals from '@/components/dummyData/roman_numerals';
 
 function Ward_master() {
   // FETCH DATA ward

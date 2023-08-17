@@ -3,8 +3,8 @@ import BaseLayout from '@/pages/dashboard/baselayout';
 import styles from './MainContent.module.css';
 import AutoGoToTop from '@/components/AutoGoToTop';
 // import data_ward from '@/pages/dashboard/dummyData/data_ward';
-import room_dummy_data from '@/pages/dashboard/dummyData/room_dummy_data';
-import RomanNumerals from '@/pages/dashboard/dummyData/roman_numerals';
+import room_dummy_data from '@/components/dummyData/room_dummy_data';
+import RomanNumerals from '@/components/dummyData/roman_numerals';
 import axios from 'axios';
 
 function Ward() {

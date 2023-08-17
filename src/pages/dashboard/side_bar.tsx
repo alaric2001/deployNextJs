@@ -8,8 +8,8 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import 'flowbite';
 import styles from './Sidebar.module.css';
-import ipdManagementMenu from '@/pages/dashboard/dummyData/ipdManagementMenu';
-import MasterDataList from '@/pages/dashboard/dummyData/masterDataLis';
+import ipdManagementMenu from '@/components/dummyData/ipdManagementMenu';
+import MasterDataList from '@/components/dummyData/masterDataLis';
 
 
 export default function Side_bar() {

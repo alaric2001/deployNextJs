@@ -5,7 +5,7 @@ import styles from '../../MainContent.module.css';
 import Side_bar from '@/pages/dashboard/side_bar';
 import Nav_bar from '@/pages/dashboard/nav_bar';
 import { useEffect, useState } from 'react';
-import patient_dummy_data from '@/pages/dashboard/dummyData/patient_dummy';
+import patient_dummy_data from '@/components/dummyData/patient_dummy';
 import Link from 'next/link';
 import axios from 'axios';
 
