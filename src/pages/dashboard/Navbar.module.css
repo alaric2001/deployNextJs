@@ -1,0 +1,34 @@
+.navbg{
+  background-color: #0E0E1B;
+  width: 100%;
+  position: fixed;
+  height: 70px;
+  z-index: 1;
+}
+
+.nav-item{
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 40px;
+  gap: 40px;
+}
+
+.normaltext{
+  font-family: Poppins;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+/* DROPDOWN */  
+.dd-nav-open{
+  position: fixed;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  background: #0E0E1B;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  overflow: hidden;
+}

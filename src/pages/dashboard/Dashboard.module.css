@@ -1,0 +1,90 @@
+.main-sidebar{
+  min-height: 100%;
+  min-width: 196px;
+  /* position: fixed; */
+  /* left: 0px;
+  top:0px; */
+  background: #1E1E2D;
+  color: white;
+  padding-left: 28px;
+  /* z-index: 2; */
+}
+
+.header-sidebar{
+  width: fit-content;
+  min-height: 72px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow{
+  padding-top: 7px;
+  padding-left: 34px;
+  color: #59B9FF;
+}
+
+.items-sidebar{
+  /* color: white; */
+  padding-top: 56px;
+}
+
+.item-sidebar{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding-bottom: 16px;
+  padding-top: 16px;
+  min-width: fit-content;
+}
+
+.items-icon{
+  padding-right: 16px;
+}
+
+.content{
+  width: 100%;
+  /* height: 100px; */
+  /* margin-left: 196px; */
+  padding-bottom: 40px;
+  background-color: #EFF5FF;
+  /* left: 196px;
+  top: 0px; */
+}
+
+.form-div{
+  /* position: absolute; */
+  /* display: flex; */
+  width: 1000px;
+  min-height: 625px;
+  margin-left: 122px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  /* left: 122px;
+  top: 116px; */
+  z-index: 1;
+  background: #FFFFFF;
+}
+
+.form-label{
+  /* min-width: 120px; */
+  padding-right: 120px;
+}
+
+.form-input{
+  /* position: absolute; */
+  left: 269px;
+  min-width: 640px;
+}
+
+.text-area{
+  /* position: relative; */
+  left: 164px;
+  min-width: 640px;
+}
+
+.btn-size{
+  width: 96px;
+  height: 36px;
+}
