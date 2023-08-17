@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 
-type Props = {}
+// type Props = {}
 
-function AutoGoToTop({}: Props) {
+function AutoGoToTop() {
   //BTN AUTO BACK TO TOP
   const [showButton, setShowButton] = useState(false);
   const handleScroll = () => {
