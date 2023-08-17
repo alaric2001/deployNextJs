@@ -21,7 +21,7 @@
     },
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/lib/http/client.js", "src/pages/dashboard/index_dashboard.tsx", "src/lib/utils.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/lib/http/client.js", "src/pages/dashboard/index_dashboard.tsx", "src/lib/utils.js", "src/pages/welcomeSelection.tsx", "src/pages/goal/[id].backup", "src/pages/goal/[id].tsx.backup"],
   "exclude": ["node_modules"],
   "moduleResolution": ["node_modules", ".next", "node"]
 }
