@@ -238,7 +238,7 @@ export default function Patientdata() {
   };
 
   const rr_color_indicator = (id: any) => {
-    return lastestRR(id) < 8 || lastestRR(id) > 25
+    return lastestRR(id) < 8 || lastestRR(id) >= 25
       ? 'bg-[#FF8D8D]' //Red Indicator
       : lastestRR(id) >= 21 && lastestRR(id) <= 24
       ? 'bg-[#FFC47F]' //Orange Indicator

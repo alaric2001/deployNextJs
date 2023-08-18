@@ -173,7 +173,7 @@
 .bio-frame{
   display: flex;
   justify-content: space-between;
-  gap: 60px;
+  gap: 30px;
   padding-left: 20px;
   padding-right: 20px;
   padding-top:10px;

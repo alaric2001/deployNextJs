@@ -43,7 +43,7 @@ function VitalSign() {
   const router = useRouter();
   const { vital_sign } = router.query;
 
-  const [allLast10Data, setAllLast10Data] = useState<ApiResponse | null>(null);
+  const [detailPatient, setDetailPatient] = useState<ApiResponse | null>(null);
   const [createdAtHR, setCreatedAtHR] = useState<any>();
   const [createdAtRR, setCreatedAtRR] = useState<any>();
   const [createdAtSPO2, setCreatedAtSPO2] = useState<any>();
@@ -66,7 +66,7 @@ function VitalSign() {
       //   }
       // )
       .then((response: AxiosResponse<ApiResponse>) => {
-        setAllLast10Data(response.data);
+        setDetailPatient(response.data);
 
         // -------------- hr time ----------------- //
         const hrArray = response.data.hr;
@@ -169,7 +169,7 @@ function VitalSign() {
   //   return filteringhr.map((items, i) => <p key={i}>HR: {items.heart_beats}</p>);
   // };
 
-  const hr_value = allLast10Data?.hr
+  const hr_value = detailPatient?.hr
     .sort(
       (a: any, b: any) =>
         new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
@@ -182,9 +182,9 @@ function VitalSign() {
     );
 
   const rr_value =
-    allLast10Data?.rr.sort((a: any, b: any) => new Date(a.created_at).getTime() - new Date(b.created_at).getTime()).map((items: any, i: number) => items.breaths) ?? '';
+    detailPatient?.rr.sort((a: any, b: any) => new Date(a.created_at).getTime() - new Date(b.created_at).getTime()).map((items: any, i: number) => items.breaths) ?? '';
   const temp_value =
-    allLast10Data?.temp
+    detailPatient?.temp
       .sort(
         (a: any, b: any) =>
           new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
@@ -192,14 +192,14 @@ function VitalSign() {
       .map((items: any, i: number) => items.patient_temp) ?? '';
 
   const spo2_value =
-    allLast10Data?.spo2
+    detailPatient?.spo2
       .sort(
         (a: any, b: any) =>
           new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
       )
       .map((items: any, i: number) => items.blood_oxygen) ?? '';
 
-  const systolic_value = allLast10Data?.nibp
+  const systolic_value = detailPatient?.nibp
   .sort(
     (a: any, b: any) =>
       new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
@@ -208,7 +208,7 @@ function VitalSign() {
     items.systolic
   ));
 
-  const diastolic_value = allLast10Data?.nibp
+  const diastolic_value = detailPatient?.nibp
   .sort(
     (a: any, b: any) =>
       new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
@@ -218,7 +218,7 @@ function VitalSign() {
   ));
 
   // PATIENT Examination
-  const examinationArray = allLast10Data?.examination ?? [];
+  const examinationArray = detailPatient?.examination ?? [];
   //Mengambil data yang terakhir diinputkan
   const patient_weight =
     examinationArray?.length > 0
@@ -235,7 +235,7 @@ function VitalSign() {
       ? examinationArray[examinationArray.length - 1].covid_case
       : null;
   const covidStatus = patient_covid_case != undefined ? 
-  patient_covid_case == 1 ? 'Positive' : 'Negative' : '-';
+  patient_covid_case == 1 ? 'Severe' : 'Mild' : '-';
   
   function Hr_chart() {
     useEffect(() => {
@@ -446,7 +446,7 @@ function VitalSign() {
   Temp_chart();
   Nibp_chart();
 
-  console.log(allLast10Data);
+  // console.log(detailPatient);
 
   // AUTO RELOAD PAGE
   // const reloadInterval = 5000;
@@ -481,16 +481,14 @@ function VitalSign() {
               </div>
               {/* nama pasien dkk */}
               <div className='flex flex-col gap-1'>
-                <p className='max-w-[300px] font-poppins text-4xl font-bold not-italic'>
-                  {allLast10Data?.patient_name}
-                </p>
-                <div className='w-[300px]'>
-                  <span className='mr-[40px] font-poppins text-lg font-normal not-italic text-[#919191]'>
-                    MRN: {vital_sign}
-                  </span>
-                  <span className='font-poppins text-lg font-normal not-italic text-[#919191]'>
-                    Room: {allLast10Data?.patient_room}
-                  </span>
+                <p className='max-w-[400px] font-poppins text-4xl font-bold not-italic'>{detailPatient?.patient_name}</p>
+                <div className='flex w-[300px] font-poppins text-lg font-normal not-italic text-[#919191]'>
+                  <p className='mr-[40px]'>MRN: {vital_sign}</p>
+                  <p className=''>Room: {detailPatient?.patient_room}</p>
+                </div>
+                <div className='flex gap-2 font-poppins font-normal'>
+                  <p className='text-[#919191]'>Doctor in Charge</p>
+                  <p>: {detailPatient?.examination[0].doctor.name}</p>
                 </div>
               </div>
             </div>
@@ -498,14 +496,14 @@ function VitalSign() {
             {/* sisi kanan */}
             <div className='flex items-center gap-7 font-poppins text-sm font-normal not-italic text-black'>
               {/* gender dkk */}
-              <div className='flex w-[200px] flex-col gap-4'>
+              <div className='flex flex-col gap-4'>
                 <div className='flex'>
                   <div className='w-[100px] flex-initial'>Gender</div>
-                  <p>: {allLast10Data?.gender}</p>
+                  <p>: {detailPatient?.gender}</p>
                 </div>
                 <div className='flex '>
                   <div className='w-[100px] flex-initial'>Date of Birth</div>
-                  <p>: {allLast10Data?.birth}</p>
+                  <p>: {detailPatient?.birth}</p>
                 </div>
                 <div className='flex '>
                   <div className='w-[100px] flex-initial'>Case</div>
@@ -517,16 +515,16 @@ function VitalSign() {
               <div className='flex flex-col gap-4'>
                 <div className='flex gap-1'>
                   <div className='w-32 flex-initial'>Admission Date</div>
-                  <p>: {allLast10Data?.admission_date}</p>
+                  <p>: {detailPatient?.admission_date}</p>
                 </div>
                 <div className='flex gap-1'>
                   <div className='w-32 flex-initial'>Patient Weight</div>
                   <p>: {patient_weight ? patient_weight : '-'} Kg</p>
                 </div>
-                <div className='flex items-center gap-1'>
-                  <div className='w-32 flex-initial'>Patient Notes</div>
+                <div className='flex gap-1'>
+                  <div className='w-32 flex-initial'>Patient Treatment</div>
                   <p>:</p>
-                  <p className='max-w-[350px] text-justify'>{patient_notes? patient_notes:'-'}</p>
+                  <p className='max-w-[232px]'>{patient_notes? patient_notes:'-'}</p>
                 </div>
               </div>
             </div>
