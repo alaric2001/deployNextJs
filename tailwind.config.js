@@ -6,9 +6,11 @@ module.exports = {
   content: [
     './src/**/*.{js,jsx,ts,tsx}',
     './node_modules/flowbite/**/*.js',
-    './pages/**/*.{ts,tsx}',
+    // './pages/**/*.{ts,tsx}',
+    './pages/**/*.{js,ts,jsx,tsx}',
     './public/**/*.html',
     './node_modules/flowbite/dist/datepicker.js',
+    './components/**/*.{js,ts,jsx,tsx}',
   ],
   plugins: [require('flowbite/plugin'), 'babel-plugin-styled-components'],
   theme: {
