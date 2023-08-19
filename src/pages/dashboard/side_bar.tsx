@@ -208,19 +208,18 @@ export default function Side_bar() {
 
               {/* Master Data */}
               <li>
-                <Link
-                  href='/dashboard/master_data'
+                <Link href='/dashboard/master_data'
                   className={`${
                     MasterDataList.some(
                       (item) => item.href == `${weblink.pathname}`
                     ) == true || weblink.pathname == '/dashboard/master_data'
                       ? 'bg-dark-active text-primary'
-                      : ''
+                      : 'text-white'
                   } ${
                     sideBarOpen
                       ? 'flex items-center justify-start p-5 px-3 pl-6 '
                       : 'flex items-center justify-center p-5 px-3'
-                  } text-white hover:bg-gray-700`}
+                  }hover:bg-gray-700`}
                 >
                   <i className='material-icons'>assessment</i>
                   <span className={`${sideBarOpen ? 'ml-3' : 'hidden'}`}>
