@@ -66,8 +66,7 @@ export default function Side_bar() {
             </div>
 
             {/* Hamburger Icon*/}
-            <button
-              onClick={toggle}
+            <button onClick={toggle}
               className={`${
                 sideBarOpen ? 'hidden' : 'bg-dark-active py-[13px] px-7'
               }`}
@@ -81,17 +80,16 @@ export default function Side_bar() {
             <ul className='space-y-2 py-10 font-medium'>
               {/* Dashboard */}
               <li>
-                <Link
-                  href='/dashboard/index_dashboard'
+                <Link href='/dashboard/index_dashboard'
                   className={`${
                     weblink.pathname == '/dashboard/index_dashboard'
                       ? 'bg-dark-active text-primary'
-                      : ''
+                      : 'text-white'
                   } ${
                     sideBarOpen
                       ? 'flex items-center justify-start p-5 px-3 pl-6 '
                       : 'flex items-center justify-center p-5 px-3  '
-                  } text-white hover:bg-gray-700`}
+                  }hover:bg-gray-700`}
                 >
                   <i className='material-icons'>dashboard</i>
                   <span className={`${sideBarOpen ? 'ml-3' : 'hidden'}`}>
@@ -103,9 +101,7 @@ export default function Side_bar() {
               {/* IPD Management */}
               <li>
                 {/* DROPDOWN */}
-                <button
-                  type='button'
-                  onClick={ddBtn}
+                <button type='button' onClick={ddBtn}
                   className={`${
                     ipdManagementMenu.some(
                       (item) => item.path == `${weblink.pathname}`
@@ -113,46 +109,36 @@ export default function Side_bar() {
                     weblink.pathname ==
                       `/dashboard/patient/vital_sign/[vital_sign]`
                       ? 'bg-dark-active text-primary'
-                      : ''
+                      : 'text-white'
                   } ${
                     sideBarOpen
                       ? 'flex w-full items-center p-5 px-3 pl-6'
                       : 'flex w-full items-center justify-center p-5 px-3'
                   } ${
                     ddOpen == true ? 'focus:bg-dark-active' : ''
-                  } text-white transition duration-75 hover:bg-gray-700 `}
+                  } transition duration-75 hover:bg-gray-700 `}
                 >
                   <i className='material-icons'>group</i>
-                  <span
-                    className={`${
-                      sideBarOpen
+                  <span className={`${ sideBarOpen
                         ? 'ml-3 flex-1 whitespace-nowrap text-left'
                         : 'hidden'
                     }`}
                   >
                     IPD Management
                   </span>
-                  <i
-                    className={`${
-                      sideBarOpen ? 'material-icons text-white' : 'hidden'
-                    }`}
-                  >
+                  <i className={`${sideBarOpen ? 'material-icons text-white' : 'hidden'}`}>
                     {ddOpen && sideBarOpen ? 'remove' : 'keyboard_arrow_down'}
                   </i>
                 </button>
                 {/* ISI DROPDOWN */}
-                <ul
-                  className={`${
-                    ddOpen && sideBarOpen ? styles['dd-value-area'] : 'hidden'
-                  }`}
-                >
+                <ul className={`${ddOpen && sideBarOpen ? styles['dd-value-area'] : 'hidden'}`}>
                   {ipdManagementMenu.map(({ path, name }) => (
                     <li key={name}>
                       <Link
                         href={path}
                         className={`${
-                          weblink.pathname == path ? 'text-primary' : ''
-                        } group flex w-full items-center p-5 pl-12 text-white transition duration-75 hover:bg-gray-700`}
+                          weblink.pathname == path ? 'text-primary' : 'text-white'
+                        } group flex w-full items-center p-5 pl-12 transition duration-75 hover:bg-gray-700`}
                       >
                         <div
                           className={`${
@@ -176,12 +162,12 @@ export default function Side_bar() {
                   className={`${
                     weblink.pathname == '/dashboard/ews_iot'
                       ? 'bg-dark-active text-primary'
-                      : ''
+                      : 'text-white'
                   } ${
                     sideBarOpen
                       ? 'flex items-center justify-start p-5 px-3 pl-6 '
                       : 'flex items-center justify-center p-5 px-3'
-                  } text-white hover:bg-gray-700`}
+                  }hover:bg-gray-700`}
                 >
                   {/* <i className='material-icons'>devices_other</i> */}
                   <svg
@@ -235,12 +221,12 @@ export default function Side_bar() {
                   className={`${
                     weblink.pathname == ''
                       ? 'bg-dark-active text-primary'
-                      : ''
+                      : 'text-white'
                   } ${
                     sideBarOpen
                       ? 'flex items-center justify-start p-5 px-3 pl-6 '
                       : 'flex items-center justify-center p-5 px-3'
-                  } text-white hover:bg-gray-700`}
+                  }hover:bg-gray-700`}
                 >
                   <i className='material-icons'>help</i>
                   <span className={`${sideBarOpen ? 'ml-3' : 'hidden'}`}>
