@@ -56,7 +56,7 @@ export default function Side_bar() {
               {/* <div className='ml-8 w-8'> */}
               <i
                 onClick={toggle}
-                className='material-icons cursor-pointer rounded-lg text-btn-primary hover:bg-gray-700'
+                className='material-icons cursor-pointer rounded-lg text-primary hover:bg-gray-700'
               >
                 navigate_before
               </i>
@@ -85,7 +85,7 @@ export default function Side_bar() {
                   href='/dashboard/index_dashboard'
                   className={`${
                     weblink.pathname == '/dashboard/index_dashboard'
-                      ? 'bg-dark-active text-btn-primary'
+                      ? 'bg-dark-active text-primary'
                       : ''
                   } ${
                     sideBarOpen
@@ -112,7 +112,7 @@ export default function Side_bar() {
                     ) == true ||
                     weblink.pathname ==
                       `/dashboard/patient/vital_sign/[vital_sign]`
-                      ? 'bg-dark-active text-btn-primary'
+                      ? 'bg-dark-active text-primary'
                       : ''
                   } ${
                     sideBarOpen
@@ -151,7 +151,7 @@ export default function Side_bar() {
                       <Link
                         href={path}
                         className={`${
-                          weblink.pathname == path ? 'text-btn-primary' : ''
+                          weblink.pathname == path ? 'text-primary' : ''
                         } group flex w-full items-center p-5 pl-12 text-white transition duration-75 hover:bg-gray-700`}
                       >
                         <div
@@ -175,7 +175,7 @@ export default function Side_bar() {
                   href='/dashboard/ews_iot'
                   className={`${
                     weblink.pathname == '/dashboard/ews_iot'
-                      ? 'bg-dark-active text-btn-primary'
+                      ? 'bg-dark-active text-primary'
                       : ''
                   } ${
                     sideBarOpen
@@ -214,7 +214,7 @@ export default function Side_bar() {
                     MasterDataList.some(
                       (item) => item.href == `${weblink.pathname}`
                     ) == true || weblink.pathname == '/dashboard/master_data'
-                      ? 'bg-dark-active text-btn-primary'
+                      ? 'bg-dark-active text-primary'
                       : ''
                   } ${
                     sideBarOpen
@@ -235,7 +235,7 @@ export default function Side_bar() {
                   href='/dashboard/index_dashboard'
                   className={`${
                     weblink.pathname == ''
-                      ? 'bg-dark-active text-btn-primary'
+                      ? 'bg-dark-active text-primary'
                       : ''
                   } ${
                     sideBarOpen
