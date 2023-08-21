@@ -8,24 +8,16 @@ function Help() {
     {/* Title */}
       <div className={`${styles.title} font-inter`}>Help</div>
       <div className={`${styles['help-bg']} font-poppins`}>
-        <p className='text-lg font-semibold'>Apa itu Dashboard Monitoring Pasien?</p>
+        <p className='text-lg font-semibold'>What is Patient Monitoring Dashboard?</p>
         <p className=''>
-          Dashboard Monitoring Pasien adalah antarmuka visual yang digunakan untuk memantau dan melacak data 
-          serta informasi tanda-tanda vital pasien secara real-time atau berkala. Dashboard ini biasanya digunakan 
-          oleh tenaga medis dan profesional kesehatan untuk memantau parameter kesehatan, status pengobatan, 
-          dan kondisi pasien secara efisien. Dalam konteks Covis-19, dashboard semacam ini dapat memberikan 
-          informasi seperti suhu tubuh, detak jantung, tingkat oksigen dalam darah, tekanan darah, dan laju pernapasan. 
-          Tujuannya adalah untuk memberikan pandangan komprehensif tentang status kesehatan pasien kepada tenaga medis, 
-          memungkinkan mereka untuk mengambil keputusan yang lebih baik dan responsif terhadap perubahan kondisi pasien. 
-          Dashboard Monitoring Pasien dapat membantu dalam mengoptimalkan perawatan pasien, mengurangi kesalahan, dan 
-          memfasilitasi koordinasi yang lebih baik di antara tim medis.
+          The patient Monitoring Dashboard is a visual interface that is used to monitor and track data and patient health information in real time or periodically. This dashboard is usually used by medical personnel and healthcare professionals to efficiently monitor health parameters, treatment status, and patient conditions. In the context of COVID-19, this kind of dashboard can provide information such as body temperature, heart rate, blood oxygen level, blood pressure, and other vital data. The aim is to provide medical personnel with a comprehensive view of a patient's health status, enabling them to make better decisions and be responsive to changes in a patient's condition. The Patient Monitoring Dashboard can assist in optimizing patient care, reducing errors, and facilitating better coordination among medical teams.
         </p>
       </div>
       <div className={`${styles['help-bg']}`}>
-        <p className='text-lg font-semibold'>Pusat Bantuan</p>
+        <p className='text-lg font-semibold'>Help Center</p>
         <p className=''>
-          Silahkan hubungi kami bila ditemukan seuatu kendala atau masalah dalam penggunaan Dashboard Monitoring Pasien ini.
-          <br/>Kontak: 081234567890
+          Please contact us if you find any problems or problems in using this Patient Monitoring Dashboard.
+          <br/>Contact: 081234567890
           <br/>Email: admin@mail.com
         </p>
       </div>
