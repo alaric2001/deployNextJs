@@ -25,7 +25,7 @@ const Master = () => {
       <div className={styles.layout}>
         <Side_bar />
         <div className={styles.children}>
-          <div className={`${styles.title}`}>Master Data</div>
+          <div className={`${styles.title} font-inter`}>Master Data</div>
           <div className='mx-auto mt-6 grid w-[1172px] grid-cols-4 gap-10'>
             {MasterDataList.map((e, k) => (
               <Link key={k} href={e.href}>

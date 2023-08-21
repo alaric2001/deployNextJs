@@ -22,6 +22,7 @@ module.exports = {
           book: ['Avenir Book', ...fontFamily.sans],
         },
         poppins: ['Poppins', 'sans-serif'],
+        inter: ['Inter', 'sans-serif'],
       },
       colors: {
         primary: '#00A3FF',

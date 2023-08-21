@@ -131,7 +131,7 @@ function Patient_master() {
         <Side_bar />
         <div className={`${styles['children_master']}`}>
           {/* Title */}
-          <div className={`${styles.title}`}>Master Data Patient</div>
+          <div className={`${styles.title} font-inter`}>Master Data Patient</div>
           {/* TABLE FRAME */}
           <div className={styles['table-master-bg']}>
             <div className='mx-6 flex items-center justify-between pt-6 '>

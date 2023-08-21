@@ -285,7 +285,7 @@ export default function Index_dashboard() {
   return (
     <BaseLayout>
       <div className={`${styles.content} ${'container'}`}>
-        <div className={`${styles.title}`}>
+        <div className={`${styles.title} font-inter`}>
           Covid-19 Patients Monitoring Dashboard
         </div>
         <div className='grid gap-4 p-4 lg:grid-cols-7'>

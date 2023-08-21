@@ -217,9 +217,9 @@ export default function Side_bar() {
               {/* Help */}
               <li>
                 <Link
-                  href='/dashboard/index_dashboard'
+                  href='/dashboard/help'
                   className={`${
-                    weblink.pathname == ''
+                    weblink.pathname == '/dashboard/help'
                       ? 'bg-dark-active text-primary'
                       : 'text-white'
                   } ${

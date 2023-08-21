@@ -148,7 +148,7 @@ export default function Ews_iot() {
   return (
     <BaseLayout>
       {/* TITLE FRAME*/}
-      <div className={`${styles.title} ${'flex items-center justify-between'}`}>
+      <div className={`${styles.title} font-inter`}>
         <p>Early Warning System</p>
       </div>
 

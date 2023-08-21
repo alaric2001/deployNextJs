@@ -92,7 +92,7 @@ function Ward() {
 
   return (
     <BaseLayout>
-      <div className={`${styles.title}`}>Ward Data</div>
+      <div className={`${styles.title} font-inter`}>Ward Data</div>
       <div className={styles['table-bg']}>
         <div className='mx-6 flex items-center justify-end pt-6 '>
           {/* SORT PATIENT DATA */}

@@ -304,7 +304,7 @@ export default function Patientdata() {
         <Side_bar />
         <div className={styles.children}>
           {/* TITLE FRAME*/}
-          <div className={`${styles.title} ${'flex items-center justify-between'}`}>
+          <div className={`${styles.title} font-inter`}>
             <p>Patient Data</p>
           </div>
 
