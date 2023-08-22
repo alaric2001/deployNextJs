@@ -469,7 +469,7 @@ function VitalSign() {
         <Side_bar />
         <div className={styles.children}>
           {/* <div className={`${styles.content} ${'container'}`}> */}
-          <div className={`${styles.title}`}>Patient Detail Data</div>
+          <div className={`${styles.title} font-inter`}>Patient Detail Data</div>
 
           {/* = = = frame biodata = = =*/}
           <div className={styles['bio-frame']}>
