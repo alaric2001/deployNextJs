@@ -320,7 +320,7 @@ export default function Index_dashboard() {
                 </span>
               </div>
 
-              <div className='flex p-2'>
+              {/* <div className='flex p-2'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   width='36'
@@ -342,9 +342,9 @@ export default function Index_dashboard() {
                   </p>
                   <p className='font-poppins text-sm not-italic'>40 Patient</p>
                 </span>
-              </div>
+              </div> */}
 
-              <div className='flex p-2'>
+              {/* <div className='flex p-2'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   width='36'
@@ -366,7 +366,7 @@ export default function Index_dashboard() {
                   </p>
                   <p className='font-poppins text-sm not-italic'>40 Patient</p>
                 </span>
-              </div>
+              </div> */}
 
               <div className='flex p-2'>
                 <svg
