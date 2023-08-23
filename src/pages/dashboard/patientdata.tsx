@@ -150,7 +150,7 @@ export default function Patientdata() {
   const take_hr = patients.map((data) => data.hr.map((hr: any) => hr));
   const lastestHR = (id: any) => {
     const filteringLastestHR = take_hr[id - 1];
-    if (!filteringLastestHR || filteringLastestHR.length === 0) {
+    if (!filteringLastestHR || filteringLastestHR.length == 0) {
       return '-';
     }
     filteringLastestHR.sort(sortBy_created_at);
@@ -164,7 +164,7 @@ export default function Patientdata() {
   const take_rr = patients.map((data) => data.rr.map((rr: any) => rr));
   const lastestRR = (id: any) => {
     const filteringLastestRR = take_rr[id - 1];
-    if (!filteringLastestRR || filteringLastestRR.length === 0) {
+    if (!filteringLastestRR || filteringLastestRR.length == 0) {
       return '-';
     }
     filteringLastestRR.sort(sortBy_created_at);
@@ -175,7 +175,7 @@ export default function Patientdata() {
   const take_spo2 = patients.map((data) => data.spo2.map((spo2: any) => spo2));
   const lastestSpo2 = (id: any) => {
     const filteringLastestSpo2 = take_spo2[id - 1];
-    if (!filteringLastestSpo2 || filteringLastestSpo2.length === 0) {
+    if (!filteringLastestSpo2 || filteringLastestSpo2.length == 0) {
       return '-';
     }
     filteringLastestSpo2.sort(sortBy_created_at);
@@ -186,7 +186,7 @@ export default function Patientdata() {
   const take_temp = patients.map((data) => data.temp.map((temp: any) => temp));
   const lastestTemp = (id: any) => {
     const filteringLastestTemp = take_temp[id - 1];
-    if (!filteringLastestTemp || filteringLastestTemp.length === 0) {
+    if (!filteringLastestTemp || filteringLastestTemp.length == 0) {
       return '-';
     }
     filteringLastestTemp.sort(sortBy_created_at);
@@ -197,7 +197,7 @@ export default function Patientdata() {
   const take_nibp = patients.map((data) => data.nibp.map((nibp: any) => nibp));
   const lastestNibpSystolic = (id: any) => {
     const filteringLastestNibp = take_nibp[id - 1];
-    if (filteringLastestNibp.length === 0) {
+    if (filteringLastestNibp.length == 0) {
       return '-';
     }
     filteringLastestNibp.sort(sortBy_created_at);
@@ -216,7 +216,7 @@ export default function Patientdata() {
   const lastestNibpDiastolic = (id: any) => {
     const filteringLastestNibp = take_nibp[id - 1];
     //Solving error typeerror: cannot read properties of undefined (reading '0').
-    if (!filteringLastestNibp || filteringLastestNibp.length === 0) {
+    if (!filteringLastestNibp || filteringLastestNibp.length == 0) {
       return '-';
     }
     filteringLastestNibp.sort(sortBy_created_at);
