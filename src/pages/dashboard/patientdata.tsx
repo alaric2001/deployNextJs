@@ -197,21 +197,11 @@ export default function Patientdata() {
   const take_nibp = patients.map((data) => data.nibp.map((nibp: any) => nibp));
   const lastestNibpSystolic = (id: any) => {
     const filteringLastestNibp = take_nibp[id - 1];
-    if (filteringLastestNibp.length == 0) {
+    if (!filteringLastestNibp || filteringLastestNibp.length === 0) {
       return '-';
     }
     filteringLastestNibp.sort(sortBy_created_at);
     return filteringLastestNibp[0] ? filteringLastestNibp[0].systolic : '-';
-    // return (
-    //   <>
-    //     <span>
-    //       {filteringLastestNibp[0] ? filteringLastestNibp[0].systolic : '-'}
-    //     </span>
-    //     <span>
-    //       /{filteringLastestNibp[0] ? filteringLastestNibp[0].diastolic : '-'}
-    //     </span>
-    //   </>
-    // );
   };
   const lastestNibpDiastolic = (id: any) => {
     const filteringLastestNibp = take_nibp[id - 1];
@@ -238,7 +228,7 @@ export default function Patientdata() {
   };
 
   const rr_color_indicator = (id: any) => {
-    return lastestRR(id) < 8 || lastestRR(id) >= 25
+    return lastestRR(id) <= 8 || lastestRR(id) >= 25
       ? 'bg-[#FF8D8D]' //Red Indicator
       : lastestRR(id) >= 21 && lastestRR(id) <= 24
       ? 'bg-[#FFC47F]' //Orange Indicator
