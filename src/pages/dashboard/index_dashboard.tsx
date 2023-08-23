@@ -242,7 +242,7 @@ export default function Index_dashboard() {
   );
   const lastestNibpSystolic = (id: any) => {
     const filteringLastestNibp = take_nibp[id - 1];
-    if (filteringLastestNibp.length == 0) {
+    if (!filteringLastestNibp || filteringLastestNibp.length == 0) {
       return '-';
     }
     filteringLastestNibp.sort(sortBy_created_at);
