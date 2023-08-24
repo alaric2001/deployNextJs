@@ -32,11 +32,11 @@ export default function Index_dashboard() {
       //   }
       // ); // Replace with your API URL/
       // const response = await axios.get('https://patientmonitoring.my.id/api/patient-ttv');
-      // const response = await axios.get('http://localhost:8000/api/patient-ttv'); 
+      const response = await axios.get('http://localhost:8000/api/patient-ttv'); 
       // console.log('output env', process.env.NEXT_PUBLIC_API_URL)
       // console.log('output env', `${process.env.NEXT_PUBLIC_API_URL}/patient_ttv`)
       
-      const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/patient-ttv`);
+      // // const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/patient-ttv`);
       
       setData_main_dashboard(response.data);
       setLoading(false);
@@ -46,9 +46,30 @@ export default function Index_dashboard() {
     }
   };
 
-// console.log(data_main_dashboard);
   const patien_total = data_main_dashboard.length;
   const discharge_patient = data_main_dashboard.filter(item => item.discharge_date !== null).length;
+  const addmision_patient = data_main_dashboard.filter(item => item.addmision_date);
+  const male_patient = data_main_dashboard.filter(item => item.gender == 'Male').length;
+  const female_patient = data_main_dashboard.filter(item => item.gender == 'Female').length;
+  // const severe_case = data_main_dashboard.filter(item => item.covid_case == 1).length;
+  // const mild_case = data_main_dashboard.filter(item => item.covid_case == 0).length;
+
+  // Initialize counters
+  let totalCases1 = 0;
+  let totalCases0 = 0;
+
+  // Iterate through patients and their age data
+  data_main_dashboard.forEach((patient) => {
+    patient.examination.forEach((covid_case:any) => {
+      if (covid_case.covid_case == 1) {
+        totalCases1++;
+      } else if (covid_case.covid_case == 0) {
+        totalCases0++;
+      }
+    });
+  });
+
+  // console.log(totalCases1);
 
   function Case_chart() {
     useEffect(() => {
@@ -60,7 +81,7 @@ export default function Index_dashboard() {
           datasets: [
             {
               label: 'Dataset 1',
-              data: [8, 32],
+              data: [totalCases0, totalCases1],
               backgroundColor: [
                 'rgba(255, 64, 105, 1)',
                 'rgba(255, 194, 22, 1)',
@@ -165,6 +186,60 @@ export default function Index_dashboard() {
     });
   }
 
+  function Gender_chart() {
+    useEffect(() => {
+      const ctx = document.getElementById('gender_chart') as HTMLCanvasElement;
+      const labels = [addmision_patient];
+      const chartConfig = {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              label: 'Male',
+              data: [male_patient],
+              backgroundColor: 'rgba(59, 173, 255, 1)',
+              fill: true,
+            },
+            {
+              label: 'Female',
+              data: [female_patient],
+              backgroundColor: 'rgba(254, 132, 212, 1)',
+              fill: true,
+            }
+          ],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            title: {
+              display: true,
+              text: 'Patient by Gender',
+            },
+          },
+          animation: { 
+            duration: 0
+          },
+          scales: {
+            y: {
+              title: {
+                display: true,
+                text: 'Value',
+              },
+              beginAtZero: true,
+            },
+          },
+        },
+      };
+
+      const gender_chart = new (Chart as any)(ctx, chartConfig);
+
+      return () => {
+        gender_chart.destroy();
+      };
+    });
+  }
+
   // const TableAlert = () => {
   //   return (
   //     <div className='w-full md:col-span-4 relative m-auto p-4 border rounded-lg bg-white'>
@@ -176,6 +251,7 @@ export default function Index_dashboard() {
   //========= Call Function =========//
   Case_chart();
   Inout_chart();
+  Gender_chart();
 
 
   // Ururtkan berdasarkan tgl terakhit
@@ -192,7 +268,7 @@ export default function Index_dashboard() {
   const take_hr = data_main_dashboard.map((data) => data.hr.map((hr: any) => hr));
   const lastestHR = (id: any) => {
     const filteringLastestHR = take_hr[id - 1];
-    if (!filteringLastestHR || filteringLastestHR.length == 0) {
+    if (!filteringLastestHR || filteringLastestHR.length === 0) {
       return '-';
     }
     filteringLastestHR.sort(sortBy_created_at);
@@ -203,7 +279,7 @@ export default function Index_dashboard() {
   const take_rr = data_main_dashboard.map((data) => data.rr.map((rr: any) => rr));
   const lastestRR = (id: any) => {
     const filteringLastestRR = take_rr[id - 1];
-    if (!filteringLastestRR || filteringLastestRR.length == 0) {
+    if (!filteringLastestRR || filteringLastestRR.length === 0) {
       return '-';
     }
     filteringLastestRR.sort(sortBy_created_at);
@@ -216,7 +292,7 @@ export default function Index_dashboard() {
   );
   const lastestSpo2 = (id: any) => {
     const filteringLastestSpo2 = take_spo2[id - 1];
-    if (!filteringLastestSpo2 || filteringLastestSpo2.length == 0) {
+    if (!filteringLastestSpo2 || filteringLastestSpo2.length === 0) {
       return '-';
     }
     filteringLastestSpo2.sort(sortBy_created_at);
@@ -229,7 +305,7 @@ export default function Index_dashboard() {
   );
   const lastestTemp = (id: any) => {
     const filteringLastestTemp = take_temp[id - 1];
-    if (!filteringLastestTemp || filteringLastestTemp.length == 0) {
+    if (!filteringLastestTemp || filteringLastestTemp.length === 0) {
       return '-';
     }
     filteringLastestTemp.sort(sortBy_created_at);
@@ -242,7 +318,7 @@ export default function Index_dashboard() {
   );
   const lastestNibpSystolic = (id: any) => {
     const filteringLastestNibp = take_nibp[id - 1];
-    if (!filteringLastestNibp || filteringLastestNibp.length == 0) {
+    if (!filteringLastestNibp || filteringLastestNibp.length === 0) {
       return '-';
     }
     filteringLastestNibp.sort(sortBy_created_at);
@@ -251,7 +327,7 @@ export default function Index_dashboard() {
   const lastestNibpDiastolic = (id: any) => {
     const filteringLastestNibp = take_nibp[id - 1];
     //Solving error typeerror: cannot read properties of undefined (reading '0').
-    if (!filteringLastestNibp || filteringLastestNibp.length == 0) {
+    if (!filteringLastestNibp || filteringLastestNibp.length === 0) {
       return '-';
     }
     filteringLastestNibp.sort(sortBy_created_at);
@@ -280,15 +356,11 @@ export default function Index_dashboard() {
   
   
 
-
-
   return (
     <BaseLayout>
       <div className={`${styles.content} ${'container'}`}>
-        <div className={`${styles.title} font-inter`}>
-          Covid-19 Patients Monitoring Dashboard
-        </div>
-        <div className='grid gap-4 p-4 lg:grid-cols-7'>
+        <div className={`${styles.title} font-inter`}>Covid-19 Patients Monitoring Dashboard</div>
+        <div className='grid gap-4 p-4 w-[1172px] lg:grid-cols-7'>
           <div className='flex w-full justify-between rounded-lg border bg-white p-4 lg:col-span-2'>
             <div className='flex flex-col gap-1'>
               <p className='max-w-[240px] font-poppins text-2xl font-black not-italic'>
@@ -342,9 +414,9 @@ export default function Index_dashboard() {
                   </p>
                   <p className='font-poppins text-sm not-italic'>40 Patient</p>
                 </span>
-              </div> */}
+              </div>
 
-              {/* <div className='flex p-2'>
+              <div className='flex p-2'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   width='36'
@@ -402,10 +474,11 @@ export default function Index_dashboard() {
             <canvas id='inout_chart'></canvas>
           </div>
         </div>
-        <div className='grid grid-cols-1 gap-4 p-4 md:grid-cols-7'>
+        <div className='flex p-4 w-[1172px] gap-1 justify-between'>
+        {/* <div className='grid grid-cols-1 gap-4 p-4 md:grid-cols-7'> */}
           {/* <TableAlert /> */}
-          <div className='relative m-auto flex flex-col items-center w-full rounded-lg border bg-white p-2 md:col-span-4'>
-            <div>Patient Early Warning Score Condition</div>
+          <div className='relative flex flex-col items-center w-[642px] rounded-lg border bg-white p-2'>
+            <div className='font-poppins text-2xl font-black not-italic p-4'>Patient Early Warning Score Condition</div>
             <table className=' w-[100%] text-center font-poppins text-xs not-italic leading-[normal] text-[#2D2D2D]'>
               {data_main_dashboard.length != 0 ? (
                 <thead className='border-b text-xs font-medium'>
@@ -448,7 +521,11 @@ export default function Index_dashboard() {
               </tbody>
             </table>
           </div>
+          <div className='h-[300px] w-[478px] flex flex-col rounded-lg border bg-white p-2 md:col-span-3'>
+            <canvas id='gender_chart'></canvas>
+          </div>
         </div>
+        
         <AutoGoToTop />
 
         {/* <div className={styles['table-bg']}>p</div> */}
