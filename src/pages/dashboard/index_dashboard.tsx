@@ -63,9 +63,9 @@ export default function Index_dashboard() {
     // Check if patient.examination is defined and an array
     if (patient.examination?.length) {
       patient.examination.forEach((covid_case: any) => {
-        if (covid_case.covid_case === 1) {
+        if (covid_case.covid_case == 1) {
           totalCases1++;
-        } else if (covid_case.covid_case === 0) {
+        } else if (covid_case.covid_case == 0) {
           totalCases0++;
         }
       });
