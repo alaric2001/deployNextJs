@@ -55,8 +55,8 @@ export default function Index_dashboard() {
   // const mild_case = data_main_dashboard.filter(item => item.covid_case == 0).length;
 
   // Initialize counters
-  let totalCases1 = 0;
-  let totalCases0 = 0;
+  let severeCase = 0;
+  let mildCase = 0;
 
   // Iterate through patients and their Covid Case data
   data_main_dashboard.forEach((patient) => {
@@ -64,15 +64,15 @@ export default function Index_dashboard() {
     if (patient.examination?.length) {
       patient.examination.forEach((covid_case: any) => {
         if (covid_case.covid_case == 1) {
-          totalCases1++;
+          severeCase++;
         } else if (covid_case.covid_case == 0) {
-          totalCases0++;
+          mildCase++;
         }
       });
     }
   });
 
-  // console.log(totalCases1);
+  // console.log(severeCase);
 
   function Case_chart() {
     useEffect(() => {
@@ -84,7 +84,7 @@ export default function Index_dashboard() {
           datasets: [
             {
               label: 'Dataset 1',
-              data: [totalCases0, totalCases1],
+              data: [severeCase, mildCase],
               backgroundColor: [
                 'rgba(255, 64, 105, 1)',
                 'rgba(255, 194, 22, 1)',
