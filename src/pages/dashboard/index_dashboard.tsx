@@ -58,15 +58,18 @@ export default function Index_dashboard() {
   let totalCases1 = 0;
   let totalCases0 = 0;
 
-  // Iterate through patients and their age data
+  // Iterate through patients and their Covid Case data
   data_main_dashboard.forEach((patient) => {
-    patient.examination.forEach((covid_case:any) => {
-      if (covid_case.covid_case == 1) {
-        totalCases1++;
-      } else if (covid_case.covid_case == 0) {
-        totalCases0++;
-      }
-    });
+    // Check if patient.examination is defined and an array
+    if (patient.examination?.length) {
+      patient.examination.forEach((covid_case: any) => {
+        if (covid_case.covid_case === 1) {
+          totalCases1++;
+        } else if (covid_case.covid_case === 0) {
+          totalCases0++;
+        }
+      });
+    }
   });
 
   // console.log(totalCases1);
