@@ -31,8 +31,8 @@ export default function Index_dashboard() {
       //     },
       //   }
       // ); // Replace with your API URL/
-      // const response = await axios.get('https://patientmonitoring.my.id/api/patient-ttv');
-      const response = await axios.get('http://localhost:8000/api/patient-ttv'); 
+      const response = await axios.get('https://patientmonitoring.my.id/api/patient-ttv');
+      // const response = await axios.get('http://localhost:8000/api/patient-ttv'); 
       // console.log('output env', process.env.NEXT_PUBLIC_API_URL)
       // console.log('output env', `${process.env.NEXT_PUBLIC_API_URL}/patient_ttv`)
       
