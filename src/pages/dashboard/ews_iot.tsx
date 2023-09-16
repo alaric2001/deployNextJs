@@ -4,7 +4,7 @@ import patient_dummy_data from '@/components/dummyData/patient_dummy';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import AutoGoToTop from '@/components/AutoGoToTop';
-import { Line } from 'react-chartjs-2';
+// import { Line } from 'react-chartjs-2';
 import 'chart.js/auto';
 import axios from 'axios';
 
